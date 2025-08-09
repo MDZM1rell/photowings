@@ -14,7 +14,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        /* خلفية النقاط البرتقالية المتحركة */
+        /* خلفية النقاط البرتقالية المتحركة - كثافة أكبر */
         body::before {
             content: "";
             position: fixed;
@@ -24,7 +24,8 @@
             background:
               radial-gradient(circle 2px, rgba(255,165,0,0.3) 100%, transparent 0),
               radial-gradient(circle 2px, rgba(255,140,0,0.15) 100%, transparent 0);
-            background-position: 0 0, 25px 25px;
+            background-size: 25px 25px, 12.5px 12.5px;
+            background-position: 0 0, 6.25px 6.25px;
             background-repeat: repeat;
             opacity: 0.3;
             animation: moveBg 60s linear infinite;
@@ -32,8 +33,8 @@
             z-index: -1;
         }
         @keyframes moveBg {
-            from { background-position: 0 0, 25px 25px; }
-            to { background-position: 1000px 1000px, 1025px 1025px; }
+            from { background-position: 0 0, 6.25px 6.25px; }
+            to { background-position: 1000px 1000px, 1006.25px 1006.25px; }
         }
 
         header {
