@@ -19,6 +19,8 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 2px solid gold;
+            z-index: 10;
+            position: relative;
         }
         header img.logo {
             max-height: 80px;
@@ -62,11 +64,28 @@
             border-radius: 12px;
             padding: 20px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+            background: rgba(255, 215, 0, 0.1);
         }
         .card img {
             max-width: 100%;
             border-radius: 8px;
             margin-bottom: 15px;
+        }
+        .card h3 {
+            margin: 10px 0 8px 0;
+            color: gold;
+            font-weight: 700;
+        }
+        .card p {
+            font-size: 1em;
+            color: #ccc;
+            margin: 0;
         }
         .contact {
             text-align: center;
@@ -101,14 +120,14 @@
         }
         /* إضافة تصميم قسم الأسعار */
         .pricing {
-            background: rgba(255, 215, 0, 0.1); /* لون ذهبي فاتح */
+            background: rgba(255, 215, 0, 0.1);
             border: 2px solid gold;
             border-radius: 12px;
             padding: 25px 20px;
             max-width: 600px;
             margin: 40px auto;
             text-align: center;
-            color: #fff8dc; /* لون فاتح مريح */
+            color: #fff8dc;
         }
         .pricing h2 {
             color: gold;
@@ -121,9 +140,48 @@
             line-height: 1.6;
             font-weight: 500;
         }
+
+        /* ستايل شاشة البداية */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            flex-direction: column;
+            transition: opacity 0.5s ease;
+        }
+        #splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #splash-screen img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            image-rendering: -webkit-optimize-contrast;
+            user-select: none;
+            filter: drop-shadow(0 0 8px gold);
+        }
+        #splash-screen .desc {
+            margin-top: 20px;
+            color: gold;
+            font-size: 1.6em;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
+
+<!-- شاشة البداية -->
+<div id="splash-screen">
+    <img src="New Project (4).png" alt="شعار Photowings" />
+    <div class="desc">Photowings</div>
+</div>
 
 <header>
     <img src="New Project (4).png" alt="شعار Photowings" class="logo" />
@@ -144,15 +202,18 @@
     <div class="grid">
         <div class="card">
             <img src="New_Project_6.jpg" alt="تصميم 1" />
-            <p>تصميم صور مصغرة احترافية</p>
+            <h3>تصميم صور مصغرة احترافية</h3>
+            <p>صور مصغرة تبرز محتواك بأسلوب جذاب واحترافي يجذب الجمهور.</p>
         </div>
         <div class="card">
             <img src="New_Project_9.jpg" alt="تصميم 2" />
-            <p>تصميم صور خاصة لسطح مكتب بكل المقايس</p>
+            <h3>تصميم صور خاصة لسطح مكتب بكل المقاييس</h3>
+            <p>تصاميم فريدة ومخصصة تناسب شاشتك بأعلى جودة وأبعاد مثالية.</p>
         </div>
         <div class="card">
             <img src="New_Project_10.jpg" alt="تصميم 3" />
-            <p> لوحة تجارية لمشاريعك الخاصة </p>
+            <h3>لوحة تجارية لمشاريعك الخاصة</h3>
+            <p>لوحات بصرية تعكس هوية مشروعك بأسلوب إبداعي واحترافي.</p>
         </div>
     </div>
 </section>
@@ -163,7 +224,6 @@
     <p>نسعى دائمًا لتقديم أفضل جودة ممكنة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
 </section>
 
-<!-- قسم الأسعار -->
 <section class="pricing">
     <h2>الأسعار</h2>
     <p>الأسعار تبدأ من <strong>3 إلى 10 دولارات</strong>، وتزداد أو تنقص حسب نوع الطلب وكثرة التفاصيل والوقت المستغرق فيها.</p>
@@ -181,10 +241,15 @@
     <a href="https://www.youtube.com/@MDZM" target="_blank">📺 قناتي على اليوتيوب</a>
 </div>
 
+<script>
+    // إخفاء شاشة البداية بعد 2 ثانية
+    window.addEventListener('load', () => {
+        const splash = document.getElementById('splash-screen');
+        setTimeout(() => {
+            splash.classList.add('hidden');
+        }, 2000);
+    });
+</script>
+
 </body>
 </html>
-
-Add pricing section and styles
-
-
-edit the section works
