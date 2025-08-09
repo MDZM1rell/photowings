@@ -8,38 +8,43 @@
     <style>
         /* عام */
         body {
-            background-color: #2c3e50;
+            background-color: #1e1e1e; /* رمادي داكن أساسي */
             color: #ecf0f1;
             font-family: 'Cairo', sans-serif;
             margin: 0;
             overflow-x: hidden;
             position: relative;
         }
-        /* خلفية متحركة */
+        /* خلفية نقاط متحركة */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0;
             width: 100vw;
             height: 100vh;
-            background: url('https://i.postimg.cc/9Fsf1PqH/particles.png') repeat;
+            background:
+              radial-gradient(circle 2px, #7f8c8d 100%, transparent 0),
+              radial-gradient(circle 2px, #95a5a6 100%, transparent 0);
+            background-position: 0 0, 25px 25px;
+            background-repeat: repeat;
             opacity: 0.12;
             animation: moveBg 60s linear infinite;
+            pointer-events: none;
             z-index: -1;
         }
         @keyframes moveBg {
-            from { background-position: 0 0; }
-            to { background-position: 1000px 1000px; }
+            from { background-position: 0 0, 25px 25px; }
+            to { background-position: 1000px 1000px, 1025px 1025px; }
         }
 
         /* رأس الصفحة */
         header {
-            background: linear-gradient(135deg, #34495e, #2c3e50);
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid #e67e22;
             position: relative;
             z-index: 10;
         }
@@ -71,12 +76,12 @@
         .hero h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            color: #3498db;
+            color: #e67e22;
             font-weight: 700;
         }
         .hero p {
             font-size: 1.3em;
-            color: #95a5a6;
+            color: #bdc3c7;
         }
 
         /* المحتوى العام */
@@ -89,11 +94,16 @@
         }
 
         /* قسم أعمالنا */
+        #works {
+            background: #2c3e50;
+            border-radius: 15px;
+            padding-bottom: 50px;
+        }
         #works h2 {
             text-align: center;
             font-size: 2.8em;
             margin-bottom: 40px;
-            color: #2ecc71;
+            color: #e67e22;
             font-weight: 700;
         }
         .grid {
@@ -107,7 +117,7 @@
             border-radius: 20px;
             padding: 15px;
             width: 320px;
-            box-shadow: 0 6px 18px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.3);
             transition: transform 0.35s ease, box-shadow 0.35s ease;
             cursor: pointer;
         }
@@ -125,7 +135,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .card h3 {
-            color: #2ecc71;
+            color: #e67e22;
             margin-bottom: 8px;
             font-weight: 700;
             font-size: 1.3em;
@@ -138,76 +148,86 @@
             line-height: 1.4;
         }
 
-        /* قسم من نحن */
-        #about h2 {
-            color: #3498db;
-            font-size: 2.6em;
-            margin-bottom: 25px;
-            font-weight: 700;
+        /* قسم الأسعار */
+        .pricing {
+            background: #34495e;
+            border-radius: 15px;
+            padding: 35px 25px;
+            max-width: 650px;
+            margin: 40px auto 80px auto;
             text-align: center;
+            color: #f39c12;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
+            font-weight: 600;
+        }
+        .pricing h2 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            color: #f39c12;
+            font-weight: 700;
+        }
+        .pricing p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #ecf0f1;
+        }
+
+        /* قسم التواصل */
+        #contact {
+            background: #2c3e50;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 2em;
+            color: #ecf0f1;
+            margin-bottom: 80px;
+            border-radius: 15px;
+        }
+        #contact a {
+            color: #e67e22;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+            font-weight: 600;
+        }
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* قسم من نحن */
+        #about {
+            background: #34495e;
+            padding: 60px 20px 80px 20px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            color: #bdc3c7;
+            font-weight: 500;
+        }
+        #about h2 {
+            text-align: center;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            color: #e67e22;
+            font-weight: 700;
         }
         #about p {
-            font-size: 1.15em;
-            color: #bdc3c7;
+            font-size: 1.2em;
             line-height: 1.7;
             max-width: 900px;
             margin: 0 auto 15px;
             text-align: center;
         }
 
-        /* قسم الأسعار */
-        .pricing {
-            background: rgba(46, 204, 113, 0.15);
-            border: 2px solid #2ecc71;
-            border-radius: 12px;
-            padding: 25px 20px;
-            max-width: 600px;
-            margin: 40px auto;
-            text-align: center;
-            color: #ecf0f1;
-            position: relative;
-            z-index: 5;
-        }
-        .pricing h2 {
-            color: #3498db;
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .pricing p {
-            font-size: 1.3em;
-            line-height: 1.6;
-            font-weight: 500;
-            color: #bdc3c7;
-        }
-
-        /* قسم التواصل */
-        .contact {
-            text-align: center;
-            font-size: 2em;
-            margin: 40px 0;
-            position: relative;
-            z-index: 5;
-        }
-        .contact a {
-            color: #e67e22;
-            text-decoration: none;
-            transition: text-decoration 0.3s ease;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-
         /* الفوتر */
         footer {
             text-align: center;
             padding: 20px;
-            background: #34495e;
-            border-top: 2px solid #2ecc71;
+            background: #2c3e50;
+            border-top: 2px solid #e67e22;
             font-size: 0.9em;
             color: #bdc3c7;
             position: relative;
             z-index: 5;
+            margin-bottom: 40px;
         }
 
         /* الشريط الجانبي */
@@ -215,18 +235,19 @@
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background: rgba(52, 73, 94, 0.8);
+            background: rgba(44, 62, 80, 0.8);
             padding: 15px;
             border-radius: 10px;
             z-index: 10;
         }
         .sidebar a {
-            color: #3498db;
+            color: #e67e22;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 600;
         }
         .sidebar a:hover {
-            color: #2ecc71;
+            color: #f39c12;
         }
     </style>
 </head>
@@ -236,8 +257,9 @@
     <img src="New Project (4).png" alt="شعار Photowings" class="logo" />
     <nav>
         <a href="#works">أعمالنا</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">تواصل</a>
         <a href="#about">من نحن</a>
-        <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل</a>
     </nav>
 </header>
 
@@ -256,31 +278,31 @@
         </div>
         <div class="card">
             <img src="New_Project_9.jpg" alt="تصميم 2" />
-            <h3>تصميم خلفيات شاشة بأبعاد مثالية</h3>
-            <p>تصاميم فريدة تناسب شاشتك بأعلى جودة وأبعاد مثالية.</p>
+            <h3>تصميم صور سطح مكتب</h3>
+            <p>تصاميم مخصصة بأحجام متعددة تناسب جميع شاشات سطح المكتب.</p>
         </div>
         <div class="card">
             <img src="New_Project_10.jpg" alt="تصميم 3" />
-            <h3>لوحات تجارية مبتكرة</h3>
-            <p>لوحات تعكس هوية مشروعك بأسلوب إبداعي واحترافي.</p>
+            <h3>لوحات تجارية مميزة</h3>
+            <p>لوحات فنية تعكس هوية مشاريعك التجارية وتلفت الأنظار.</p>
         </div>
     </div>
 </section>
 
-<section id="about" class="content-section">
-    <h2>من نحن</h2>
-    <p>Photowings منصة للإبداع والابتكار تأسست في 2025 على يد MDZM. ندمج الخيال مع الاحتراف لنقدم تصاميم فريدة تبرز هوية عملك.</p>
-    <p>نسعى لتقديم أفضل جودة وتحويل أفكارك إلى أعمال فنية نابضة بالحياة.</p>
-</section>
-
-<section class="pricing">
+<section id="pricing" class="pricing">
     <h2>الأسعار</h2>
-    <p>الأسعار تبدأ من <strong>3 إلى 10 دولارات</strong>، وتختلف حسب نوع وتعقيد الطلب.</p>
+    <p>تبدأ الأسعار من <strong>3 إلى 10 دولارات</strong> حسب نوع الطلب وتعقيد التفاصيل والوقت المطلوب.</p>
 </section>
 
-<div class="contact">
-    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">تواصل معنا على إنستجرام</a>
-</div>
+<section id="contact" class="contact">
+    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل عبر الإنستغرام</a>
+</section>
+
+<section id="about" class="content-section" >
+    <h2>من نحن</h2>
+    <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 كمنصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
+    <p>نسعى دائمًا لتقديم أفضل جودة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
+</section>
 
 <footer>
     <p>© 2025 Photowings - جميع الحقوق محفوظة</p>
@@ -292,5 +314,4 @@
 
 </body>
 </html>
-
-full body 
+full body site edit
