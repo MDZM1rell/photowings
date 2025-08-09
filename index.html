@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photowings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            background: linear-gradient(135deg, #1c1c1c, #0d0d0d);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid gold;
+        }
+        header img.logo {
+            max-height: 80px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            color: gold;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('banner_texture.png') center/cover no-repeat;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: gold;
+        }
+        .hero p {
+            font-size: 1.3em;
+            color: #ddd;
+        }
+        .content-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .contact {
+            text-align: center;
+            font-size: 2em;
+            margin: 40px 0;
+        }
+        .contact a {
+            color: gold;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d0d0d;
+            border-top: 2px solid gold;
+            font-size: 0.9em;
+        }
+        .sidebar {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .sidebar a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="New Project (4).png" alt="شعار Photowings" class="logo">
+    <nav>
+        <a href="#works">أعمالنا</a>
+        <a href="#about">من نحن</a>
+        <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>خيالك سيصبح حقيقة مع تصاميمنا</h1>
+    <p>تصاميم احترافية تلهم جمهورك وتمنح عملك مظهراً فريداً</p>
+</section>
+
+<section id="works" class="content-section">
+    <h2>أعمالنا</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="New_Project_6.jpg" alt="تصميم 1">
+            <p>تصميم مصغر لقناة احترافية</p>
+        </div>
+        <div class="card">
+            <img src="New_Project_9.jpg" alt="تصميم 2">
+            <p>تصميم أنيق لعلامة تجارية</p>
+        </div>
+        <div class="card">
+            <img src="New_Project_10.jpg" alt="تصميم 3">
+            <p>تصميم إبداعي بأسلوب فني خاص</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="content-section">
+    <h2>من نحن</h2>
+    <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 ليكون منصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. على مر الوقت، توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
+    <p>نسعى دائمًا لتقديم أفضل جودة ممكنة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
+</section>
+
+<div class="contact">
+    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل</a>
+</div>
+
+<footer>
+    <p>© 2025 Photowings - جميع الحقوق محفوظة</p>
+</footer>
+
+<div class="sidebar">
+    <a href="https://www.youtube.com/@MDZM" target="_blank">📺 قناتي على اليوتيوب</a>
+</div>
+
+</body>
+</html>
