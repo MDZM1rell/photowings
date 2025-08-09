@@ -6,16 +6,15 @@
     <title>Photowings</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet" />
     <style>
-        /* عام */
         body {
-            background-color: #1e1e2f; /* رمادي داكن مع لمسة زرقاء */
-            color: #e0e0ff;
-            font-family: 'Cairo', sans-serif;
             margin: 0;
-            overflow-x: hidden;
+            font-family: 'Cairo', sans-serif;
+            background-color: #121212;
+            color: white;
             position: relative;
+            overflow-x: hidden;
         }
-        /* خلفية نقاط متحركة */
+        /* خلفية النقاط البرتقالية */
         body::before {
             content: "";
             position: fixed;
@@ -23,8 +22,8 @@
             width: 100vw;
             height: 100vh;
             background:
-              radial-gradient(circle 2px, rgba(180,150,255,0.3) 100%, transparent 0),
-              radial-gradient(circle 2px, rgba(130,100,230,0.15) 100%, transparent 0);
+              radial-gradient(circle 2px, rgba(255,165,0,0.3) 100%, transparent 0),
+              radial-gradient(circle 2px, rgba(255,140,0,0.15) 100%, transparent 0);
             background-position: 0 0, 25px 25px;
             background-repeat: repeat;
             opacity: 0.3;
@@ -37,57 +36,53 @@
             to { background-position: 1000px 1000px, 1025px 1025px; }
         }
 
-        /* رأس الصفحة */
         header {
-            background: linear-gradient(135deg, #2a1e4d, #3b2a74);
+            background: linear-gradient(135deg, #1c1c1c, #0d0d0d);
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #b17aff;
+            border-bottom: 2px solid gold;
             position: relative;
             z-index: 10;
         }
         header img.logo {
-            max-height: 110px; /* أكبر من السابق */
+            max-height: 100px;
             width: auto;
             object-fit: contain;
-            filter: none; /* إزالة أي توهج */
+            filter: none;
             box-shadow: none;
         }
         nav a {
             margin: 0 15px;
-            color: #dcdcff;
+            color: white;
             text-decoration: none;
             font-size: 1.1em;
             transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #b17aff;
+            color: gold;
         }
 
-        /* قسم البطل */
         .hero {
             text-align: center;
-            padding: 100px 20px 120px;
+            padding: 80px 20px 120px;
             background: url('banner_texture.png') center/cover no-repeat;
-            border-bottom: 2px solid rgba(224, 224, 255, 0.15);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            color: gold;
             position: relative;
             z-index: 5;
-            color: #dcdcff;
         }
         .hero h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            color: #b17aff;
             font-weight: 700;
         }
         .hero p {
             font-size: 1.3em;
-            color: #aaaaff;
+            color: #ddd;
         }
 
-        /* المحتوى العام */
         .content-section {
             padding: 50px 20px;
             max-width: 1200px;
@@ -96,161 +91,126 @@
             z-index: 5;
         }
 
-        /* قسم أعمالنا */
         #works {
-            background: #3b2a74;
-            border-radius: 15px;
-            padding-bottom: 50px;
+            text-align: center;
         }
         #works h2 {
-            text-align: center;
             font-size: 2.8em;
             margin-bottom: 40px;
-            color: #b17aff;
             font-weight: 700;
         }
         .grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
         .card {
-            background: #4a3a9c;
-            border-radius: 20px;
-            padding: 15px;
-            width: 320px;
-            box-shadow: 0 6px 18px rgba(177, 122, 255, 0.4);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 28px rgba(177, 122, 255, 0.8);
-            background: #5c4bbe;
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.6);
         }
         .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
+            max-width: 100%;
+            border-radius: 8px;
             margin-bottom: 15px;
+            object-fit: cover;
+            height: 200px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        .card h3 {
-            color: #d8cfff;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 1.3em;
-            text-align: center;
-        }
         .card p {
-            font-size: 1em;
-            color: #cccaff;
-            text-align: center;
-            line-height: 1.4;
+            font-size: 1.1em;
+            color: #ffb84d;
         }
 
-        /* قسم الأسعار */
         .pricing {
-            background: #4a3a9c;
-            border-radius: 15px;
-            padding: 35px 25px;
-            max-width: 650px;
-            margin: 40px auto 80px auto;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid gold;
+            border-radius: 12px;
+            padding: 25px 20px;
+            max-width: 600px;
+            margin: 40px auto;
             text-align: center;
-            color: #d8cfff;
-            box-shadow: 0 8px 20px rgba(177, 122, 255, 0.4);
-            font-weight: 600;
+            color: #fff8dc;
         }
         .pricing h2 {
-            font-size: 2.4em;
-            margin-bottom: 20px;
-            color: #b17aff;
+            color: gold;
+            font-size: 2.2em;
+            margin-bottom: 15px;
             font-weight: 700;
         }
         .pricing p {
-            font-size: 1.4em;
+            font-size: 1.3em;
             line-height: 1.6;
-            color: #e0e0ff;
+            font-weight: 500;
         }
 
-        /* قسم التواصل */
-        #contact {
-            background: #3b2a74;
-            padding: 40px 20px;
+        .contact {
             text-align: center;
             font-size: 2em;
-            color: #e0e0ff;
-            margin-bottom: 80px;
-            border-radius: 15px;
+            margin: 40px 0;
         }
-        #contact a {
-            color: #b17aff;
+        .contact a {
+            color: gold;
             text-decoration: none;
-            transition: text-decoration 0.3s ease;
             font-weight: 600;
         }
-        #contact a:hover {
+        .contact a:hover {
             text-decoration: underline;
         }
 
-        /* قسم من نحن */
         #about {
-            background: #4a3a9c;
-            padding: 60px 20px 80px 20px;
-            border-radius: 15px;
+            padding: 60px 20px 80px;
             max-width: 1000px;
-            margin: 0 auto 40px auto;
-            color: #cccaff;
+            margin: 40px auto;
+            color: #fff8dc;
             font-weight: 500;
+            text-align: center;
         }
         #about h2 {
-            text-align: center;
             font-size: 2.6em;
             margin-bottom: 30px;
-            color: #b17aff;
             font-weight: 700;
+            color: gold;
         }
         #about p {
             font-size: 1.2em;
             line-height: 1.7;
             max-width: 900px;
             margin: 0 auto 15px;
-            text-align: center;
         }
 
-        /* الفوتر */
         footer {
             text-align: center;
             padding: 20px;
-            background: #3b2a74;
-            border-top: 2px solid #b17aff;
+            background: #0d0d0d;
+            border-top: 2px solid gold;
             font-size: 0.9em;
-            color: #cccaff;
-            position: relative;
-            z-index: 5;
-            margin-bottom: 40px;
+            color: #fff8dc;
         }
 
-        /* الشريط الجانبي */
         .sidebar {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background: rgba(58, 42, 116, 0.85);
+            background: rgba(255, 165, 0, 0.2);
             padding: 15px;
             border-radius: 10px;
             z-index: 10;
         }
         .sidebar a {
-            color: #b17aff;
+            color: #ffb84d;
             text-decoration: none;
-            transition: color 0.3s ease;
             font-weight: 600;
         }
         .sidebar a:hover {
-            color: #d2b8ff;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -260,15 +220,14 @@
     <img src="New Project (4).png" alt="شعار Photowings" class="logo" />
     <nav>
         <a href="#works">أعمالنا</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#contact">تواصل</a>
         <a href="#about">من نحن</a>
+        <a href="https://www.instagram.com/mdzm1reall/" target="_blank" rel="noopener">للتواصل</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h1>خيالك يتحول إلى واقع مع تصاميمنا</h1>
-    <p>تصاميم احترافية تلهم جمهورك وتعزز حضورك.</p>
+    <h1>خيالك سيصبح حقيقة مع تصاميمنا</h1>
+    <p>تصاميم احترافية تلهم جمهورك وتمنح عملك مظهراً فريداً</p>
 </section>
 
 <section id="works" class="content-section">
@@ -276,35 +235,32 @@
     <div class="grid">
         <div class="card">
             <img src="New_Project_6.jpg" alt="تصميم 1" />
-            <h3>تصميم صور مصغرة احترافية</h
-            <p>تصاميم صور مصغرة جذابة تلتقط انتباه جمهورك بسرعة.</p>
+            <p>تصميم صور مصغرة احترافية</p>
         </div>
         <div class="card">
             <img src="New_Project_9.jpg" alt="تصميم 2" />
-            <h3>تصميم صور لسطح المكتب</h3>
-            <p>تصاميم متناسقة تناسب جميع المقاسات لتعزيز تجربة المستخدم.</p>
+            <p>تصميم صور خاصة لسطح مكتب بكل المقايس</p>
         </div>
         <div class="card">
             <img src="New_Project_10.jpg" alt="تصميم 3" />
-            <h3>لوحات تجارية مميزة</h3>
-            <p>لوحات فنية تعكس هوية مشاريعك التجارية وتلفت الأنظار.</p>
+            <p>لوحة تجارية لمشاريعك الخاصة</p>
         </div>
     </div>
 </section>
 
-<section id="pricing" class="pricing">
+<section class="pricing">
     <h2>الأسعار</h2>
-    <p>تبدأ الأسعار من <strong>3 إلى 10 دولارات</strong> حسب نوع الطلب وتعقيد التفاصيل والوقت المطلوب.</p>
+    <p>الأسعار تبدأ من <strong>3 إلى 10 دولارات</strong>، وتزداد أو تنقص حسب نوع الطلب وكثرة التفاصيل والوقت المستغرق فيها.</p>
 </section>
 
-<section id="contact" class="contact">
-    <a href="https://www.instagram.com/mdzm1reall/" target="_blank" rel="noopener">للتواصل عبر الإنستغرام</a>
-</section>
+<div class="contact">
+    <a href="https://www.instagram.com/mdzm1reall/" target="_blank" rel="noopener">للتواصل</a>
+</div>
 
-<section id="about" class="content-section">
+<section id="about">
     <h2>من نحن</h2>
-    <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 كمنصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
-    <p>نسعى دائمًا لتقديم أفضل جودة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
+    <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 ليكون منصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. على مر الوقت، توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
+    <p>نسعى دائمًا لتقديم أفضل جودة ممكنة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
 </section>
 
 <footer>
@@ -317,4 +273,3 @@
 
 </body>
 </html>
-full body
