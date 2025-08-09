@@ -8,8 +8,8 @@
     <style>
         /* عام */
         body {
-            background-color: #1e1e1e; /* رمادي داكن أساسي */
-            color: #ecf0f1;
+            background-color: #1e1e2f; /* رمادي داكن مع لمسة زرقاء */
+            color: #e0e0ff;
             font-family: 'Cairo', sans-serif;
             margin: 0;
             overflow-x: hidden;
@@ -23,11 +23,11 @@
             width: 100vw;
             height: 100vh;
             background:
-              radial-gradient(circle 2px, #7f8c8d 100%, transparent 0),
-              radial-gradient(circle 2px, #95a5a6 100%, transparent 0);
+              radial-gradient(circle 2px, rgba(180,150,255,0.3) 100%, transparent 0),
+              radial-gradient(circle 2px, rgba(130,100,230,0.15) 100%, transparent 0);
             background-position: 0 0, 25px 25px;
             background-repeat: repeat;
-            opacity: 0.12;
+            opacity: 0.3;
             animation: moveBg 60s linear infinite;
             pointer-events: none;
             z-index: -1;
@@ -39,29 +39,31 @@
 
         /* رأس الصفحة */
         header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #2a1e4d, #3b2a74);
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #e67e22;
+            border-bottom: 2px solid #b17aff;
             position: relative;
             z-index: 10;
         }
         header img.logo {
-            max-height: 80px;
+            max-height: 110px; /* أكبر من السابق */
             width: auto;
             object-fit: contain;
+            filter: none; /* إزالة أي توهج */
+            box-shadow: none;
         }
         nav a {
             margin: 0 15px;
-            color: #ecf0f1;
+            color: #dcdcff;
             text-decoration: none;
             font-size: 1.1em;
             transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #e67e22;
+            color: #b17aff;
         }
 
         /* قسم البطل */
@@ -69,19 +71,20 @@
             text-align: center;
             padding: 100px 20px 120px;
             background: url('banner_texture.png') center/cover no-repeat;
-            border-bottom: 2px solid rgba(236, 240, 241, 0.15);
+            border-bottom: 2px solid rgba(224, 224, 255, 0.15);
             position: relative;
             z-index: 5;
+            color: #dcdcff;
         }
         .hero h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            color: #e67e22;
+            color: #b17aff;
             font-weight: 700;
         }
         .hero p {
             font-size: 1.3em;
-            color: #bdc3c7;
+            color: #aaaaff;
         }
 
         /* المحتوى العام */
@@ -95,7 +98,7 @@
 
         /* قسم أعمالنا */
         #works {
-            background: #2c3e50;
+            background: #3b2a74;
             border-radius: 15px;
             padding-bottom: 50px;
         }
@@ -103,7 +106,7 @@
             text-align: center;
             font-size: 2.8em;
             margin-bottom: 40px;
-            color: #e67e22;
+            color: #b17aff;
             font-weight: 700;
         }
         .grid {
@@ -113,18 +116,18 @@
             flex-wrap: wrap;
         }
         .card {
-            background: #34495e;
+            background: #4a3a9c;
             border-radius: 20px;
             padding: 15px;
             width: 320px;
-            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 6px 18px rgba(177, 122, 255, 0.4);
             transition: transform 0.35s ease, box-shadow 0.35s ease;
             cursor: pointer;
         }
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 28px rgba(230, 126, 34, 0.7);
-            background: #3c5a72;
+            box-shadow: 0 12px 28px rgba(177, 122, 255, 0.8);
+            background: #5c4bbe;
         }
         .card img {
             width: 100%;
@@ -135,7 +138,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .card h3 {
-            color: #e67e22;
+            color: #d8cfff;
             margin-bottom: 8px;
             font-weight: 700;
             font-size: 1.3em;
@@ -143,47 +146,47 @@
         }
         .card p {
             font-size: 1em;
-            color: #bdc3c7;
+            color: #cccaff;
             text-align: center;
             line-height: 1.4;
         }
 
         /* قسم الأسعار */
         .pricing {
-            background: #34495e;
+            background: #4a3a9c;
             border-radius: 15px;
             padding: 35px 25px;
             max-width: 650px;
             margin: 40px auto 80px auto;
             text-align: center;
-            color: #f39c12;
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
+            color: #d8cfff;
+            box-shadow: 0 8px 20px rgba(177, 122, 255, 0.4);
             font-weight: 600;
         }
         .pricing h2 {
             font-size: 2.4em;
             margin-bottom: 20px;
-            color: #f39c12;
+            color: #b17aff;
             font-weight: 700;
         }
         .pricing p {
             font-size: 1.4em;
             line-height: 1.6;
-            color: #ecf0f1;
+            color: #e0e0ff;
         }
 
         /* قسم التواصل */
         #contact {
-            background: #2c3e50;
+            background: #3b2a74;
             padding: 40px 20px;
             text-align: center;
             font-size: 2em;
-            color: #ecf0f1;
+            color: #e0e0ff;
             margin-bottom: 80px;
             border-radius: 15px;
         }
         #contact a {
-            color: #e67e22;
+            color: #b17aff;
             text-decoration: none;
             transition: text-decoration 0.3s ease;
             font-weight: 600;
@@ -194,19 +197,19 @@
 
         /* قسم من نحن */
         #about {
-            background: #34495e;
+            background: #4a3a9c;
             padding: 60px 20px 80px 20px;
             border-radius: 15px;
             max-width: 1000px;
             margin: 0 auto 40px auto;
-            color: #bdc3c7;
+            color: #cccaff;
             font-weight: 500;
         }
         #about h2 {
             text-align: center;
             font-size: 2.6em;
             margin-bottom: 30px;
-            color: #e67e22;
+            color: #b17aff;
             font-weight: 700;
         }
         #about p {
@@ -221,10 +224,10 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: #2c3e50;
-            border-top: 2px solid #e67e22;
+            background: #3b2a74;
+            border-top: 2px solid #b17aff;
             font-size: 0.9em;
-            color: #bdc3c7;
+            color: #cccaff;
             position: relative;
             z-index: 5;
             margin-bottom: 40px;
@@ -235,19 +238,19 @@
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background: rgba(44, 62, 80, 0.8);
+            background: rgba(58, 42, 116, 0.85);
             padding: 15px;
             border-radius: 10px;
             z-index: 10;
         }
         .sidebar a {
-            color: #e67e22;
+            color: #b17aff;
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 600;
         }
         .sidebar a:hover {
-            color: #f39c12;
+            color: #d2b8ff;
         }
     </style>
 </head>
@@ -273,13 +276,13 @@
     <div class="grid">
         <div class="card">
             <img src="New_Project_6.jpg" alt="تصميم 1" />
-            <h3>تصميم صور مصغرة احترافية</h3>
-            <p>صور مصغرة تبرز محتواك بأسلوب جذاب واحترافي يجذب الجمهور.</p>
+            <h3>تصميم صور مصغرة احترافية</h
+            <p>تصاميم صور مصغرة جذابة تلتقط انتباه جمهورك بسرعة.</p>
         </div>
         <div class="card">
             <img src="New_Project_9.jpg" alt="تصميم 2" />
-            <h3>تصميم صور سطح مكتب</h3>
-            <p>تصاميم مخصصة بأحجام متعددة تناسب جميع شاشات سطح المكتب.</p>
+            <h3>تصميم صور لسطح المكتب</h3>
+            <p>تصاميم متناسقة تناسب جميع المقاسات لتعزيز تجربة المستخدم.</p>
         </div>
         <div class="card">
             <img src="New_Project_10.jpg" alt="تصميم 3" />
@@ -295,10 +298,10 @@
 </section>
 
 <section id="contact" class="contact">
-    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل عبر الإنستغرام</a>
+    <a href="https://www.instagram.com/mdzm1reall/" target="_blank" rel="noopener">للتواصل عبر الإنستغرام</a>
 </section>
 
-<section id="about" class="content-section" >
+<section id="about" class="content-section">
     <h2>من نحن</h2>
     <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 كمنصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
     <p>نسعى دائمًا لتقديم أفضل جودة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
@@ -309,9 +312,9 @@
 </footer>
 
 <div class="sidebar">
-    <a href="https://www.youtube.com/@MDZM" target="_blank">📺 قناتي على اليوتيوب</a>
+    <a href="https://www.youtube.com/@MDZM" target="_blank" rel="noopener">📺 قناتي على اليوتيوب</a>
 </div>
 
 </body>
 </html>
-full body site edit
+full body
