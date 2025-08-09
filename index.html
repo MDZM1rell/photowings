@@ -2,57 +2,84 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Photowings</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet" />
     <style>
+        /* عام */
         body {
-            margin: 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
             font-family: 'Cairo', sans-serif;
-            background-color: #121212;
-            color: white;
-            position: relative;
+            margin: 0;
             overflow-x: hidden;
+            position: relative;
         }
+        /* خلفية متحركة */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://i.postimg.cc/9Fsf1PqH/particles.png') repeat;
+            opacity: 0.12;
+            animation: moveBg 60s linear infinite;
+            z-index: -1;
+        }
+        @keyframes moveBg {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        /* رأس الصفحة */
         header {
-            background: linear-gradient(135deg, #1c1c1c, #0d0d0d);
+            background: linear-gradient(135deg, #34495e, #2c3e50);
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid gold;
-            z-index: 10;
+            border-bottom: 2px solid #3498db;
             position: relative;
+            z-index: 10;
         }
         header img.logo {
             max-height: 80px;
+            width: auto;
+            object-fit: contain;
         }
         nav a {
             margin: 0 15px;
-            color: white;
+            color: #ecf0f1;
             text-decoration: none;
             font-size: 1.1em;
+            transition: color 0.3s ease;
         }
         nav a:hover {
-            color: gold;
+            color: #e67e22;
         }
+
+        /* قسم البطل */
         .hero {
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px 120px;
             background: url('banner_texture.png') center/cover no-repeat;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid rgba(236, 240, 241, 0.15);
             position: relative;
             z-index: 5;
         }
         .hero h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            color: gold;
+            color: #3498db;
+            font-weight: 700;
         }
         .hero p {
             font-size: 1.3em;
-            color: #ddd;
+            color: #95a5a6;
         }
+
+        /* المحتوى العام */
         .content-section {
             padding: 50px 20px;
             max-width: 1200px;
@@ -60,92 +87,89 @@
             position: relative;
             z-index: 5;
         }
+
+        /* قسم أعمالنا */
+        #works h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: #2ecc71;
+            font-weight: 700;
+        }
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
         .card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #34495e;
+            border-radius: 20px;
+            padding: 15px;
+            width: 320px;
+            box-shadow: 0 6px 18px rgba(46, 204, 113, 0.3);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
             cursor: pointer;
-            position: relative;
-            z-index: 5;
         }
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 28px rgba(230, 126, 34, 0.7);
+            background: #3c5a72;
         }
         .card img {
-            max-width: 100%;
-            border-radius: 8px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
             margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .card h3 {
-            margin: 10px 0 8px 0;
-            color: gold;
+            color: #2ecc71;
+            margin-bottom: 8px;
             font-weight: 700;
+            font-size: 1.3em;
+            text-align: center;
         }
         .card p {
             font-size: 1em;
-            color: #ccc;
-            margin: 0;
-        }
-        .contact {
+            color: #bdc3c7;
             text-align: center;
-            font-size: 2em;
-            margin: 40px 0;
-            position: relative;
-            z-index: 5;
+            line-height: 1.4;
         }
-        .contact a {
-            color: gold;
-            text-decoration: none;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        footer {
+
+        /* قسم من نحن */
+        #about h2 {
+            color: #3498db;
+            font-size: 2.6em;
+            margin-bottom: 25px;
+            font-weight: 700;
             text-align: center;
-            padding: 20px;
-            background: #0d0d0d;
-            border-top: 2px solid gold;
-            font-size: 0.9em;
-            position: relative;
-            z-index: 5;
         }
-        .sidebar {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 10px;
-            z-index: 10;
+        #about p {
+            font-size: 1.15em;
+            color: #bdc3c7;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 15px;
+            text-align: center;
         }
-        .sidebar a {
-            color: #4fc3f7;
-            text-decoration: none;
-        }
-        /* إضافة تصميم قسم الأسعار */
+
+        /* قسم الأسعار */
         .pricing {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid gold;
+            background: rgba(46, 204, 113, 0.15);
+            border: 2px solid #2ecc71;
             border-radius: 12px;
             padding: 25px 20px;
             max-width: 600px;
             margin: 40px auto;
             text-align: center;
-            color: #fff8dc;
+            color: #ecf0f1;
             position: relative;
             z-index: 5;
         }
         .pricing h2 {
-            color: gold;
+            color: #3498db;
             font-size: 2.2em;
             margin-bottom: 15px;
             font-weight: 700;
@@ -154,74 +178,59 @@
             font-size: 1.3em;
             line-height: 1.6;
             font-weight: 500;
+            color: #bdc3c7;
         }
 
-        /* شاشة البداية */
-        #splash-screen {
+        /* قسم التواصل */
+        .contact {
+            text-align: center;
+            font-size: 2em;
+            margin: 40px 0;
+            position: relative;
+            z-index: 5;
+        }
+        .contact a {
+            color: #e67e22;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #34495e;
+            border-top: 2px solid #2ecc71;
+            font-size: 0.9em;
+            color: #bdc3c7;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* الشريط الجانبي */
+        .sidebar {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            flex-direction: column;
-            transition: opacity 0.5s ease;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(52, 73, 94, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 10;
         }
-        #splash-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .sidebar a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-        #splash-screen img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            image-rendering: -webkit-optimize-contrast;
-            user-select: none;
-            filter: drop-shadow(0 0 8px gold);
-        }
-        #splash-screen .desc {
-            margin-top: 20px;
-            color: gold;
-            font-size: 1.6em;
-            font-weight: 700;
-            font-family: 'Cairo', sans-serif;
-            letter-spacing: 2px;
-        }
-
-        /* خلفية دوائر متحركة */
-        .background-animated {
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          pointer-events: none;
-          z-index: 0;
-          background: radial-gradient(circle, rgba(255,215,0,0.15) 2px, transparent 3px),
-                      radial-gradient(circle, rgba(255,215,0,0.1) 1px, transparent 2px);
-          background-position: 0 0, 50px 50px;
-          background-size: 100px 100px;
-          animation: moveBackground 20s linear infinite;
-        }
-
-        @keyframes moveBackground {
-          0% {
-            background-position: 0 0, 50px 50px;
-          }
-          100% {
-            background-position: 100px 100px, 150px 150px;
-          }
+        .sidebar a:hover {
+            color: #2ecc71;
         }
     </style>
 </head>
 <body>
-
-<!-- شاشة البداية -->
-<div id="splash-screen">
-    <img src="New Project (4).png" alt="شعار Photowings" />
-    <div class="desc">Photowings</div>
-</div>
-
-<!-- خلفية متحركة -->
-<div class="background-animated"></div>
 
 <header>
     <img src="New Project (4).png" alt="شعار Photowings" class="logo" />
@@ -233,8 +242,8 @@
 </header>
 
 <section class="hero">
-    <h1>خيالك سيصبح حقيقة مع تصاميمنا</h1>
-    <p>تصاميم احترافية تلهم جمهورك وتمنح عملك مظهراً فريداً</p>
+    <h1>خيالك يتحول إلى واقع مع تصاميمنا</h1>
+    <p>تصاميم احترافية تلهم جمهورك وتعزز حضورك.</p>
 </section>
 
 <section id="works" class="content-section">
@@ -247,30 +256,30 @@
         </div>
         <div class="card">
             <img src="New_Project_9.jpg" alt="تصميم 2" />
-            <h3>تصميم صور خاصة لسطح مكتب بكل المقاييس</h3>
-            <p>تصاميم فريدة ومخصصة تناسب شاشتك بأعلى جودة وأبعاد مثالية.</p>
+            <h3>تصميم خلفيات شاشة بأبعاد مثالية</h3>
+            <p>تصاميم فريدة تناسب شاشتك بأعلى جودة وأبعاد مثالية.</p>
         </div>
         <div class="card">
             <img src="New_Project_10.jpg" alt="تصميم 3" />
-            <h3>لوحة تجارية لمشاريعك الخاصة</h3>
-            <p>لوحات بصرية تعكس هوية مشروعك بأسلوب إبداعي واحترافي.</p>
+            <h3>لوحات تجارية مبتكرة</h3>
+            <p>لوحات تعكس هوية مشروعك بأسلوب إبداعي واحترافي.</p>
         </div>
     </div>
 </section>
 
 <section id="about" class="content-section">
     <h2>من نحن</h2>
-    <p>تم تأسيس موقع Photowings من قبل MDZM بتاريخ 8/9/2025 ليكون منصة للإبداع والابتكار، حيث ندمج الخيال مع الاحترافية في كل تصميم. على مر الوقت، توسع فريقنا ليشمل مبدعين في مجالات متنوعة من التصميم الرقمي والفن البصري.</p>
-    <p>نسعى دائمًا لتقديم أفضل جودة ممكنة لعملائنا، ونؤمن أن كل فكرة تستحق أن تتحول إلى عمل فني ينبض بالحياة.</p>
+    <p>Photowings منصة للإبداع والابتكار تأسست في 2025 على يد MDZM. ندمج الخيال مع الاحتراف لنقدم تصاميم فريدة تبرز هوية عملك.</p>
+    <p>نسعى لتقديم أفضل جودة وتحويل أفكارك إلى أعمال فنية نابضة بالحياة.</p>
 </section>
 
 <section class="pricing">
     <h2>الأسعار</h2>
-    <p>الأسعار تبدأ من <strong>3 إلى 10 دولارات</strong>، وتزداد أو تنقص حسب نوع الطلب وكثرة التفاصيل والوقت المستغرق فيها.</p>
+    <p>الأسعار تبدأ من <strong>3 إلى 10 دولارات</strong>، وتختلف حسب نوع وتعقيد الطلب.</p>
 </section>
 
 <div class="contact">
-    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">للتواصل</a>
+    <a href="https://www.instagram.com/mdzm1reall/" target="_blank">تواصل معنا على إنستجرام</a>
 </div>
 
 <footer>
@@ -281,17 +290,7 @@
     <a href="https://www.youtube.com/@MDZM" target="_blank">📺 قناتي على اليوتيوب</a>
 </div>
 
-<script>
-    // إخفاء شاشة البداية بعد 2 ثانية
-    window.addEventListener('load', () => {
-        const splash = document.getElementById('splash-screen');
-        setTimeout(() => {
-            splash.classList.add('hidden');
-        }, 2000);
-    });
-</script>
-
 </body>
 </html>
 
-change the full body of the site
+full body 
